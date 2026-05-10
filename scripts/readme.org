@@ -1,6 +1,6 @@
 #+title: Voice of the Customer Analysis Scripts
 
-This folder contains examples in the R language for statistical computing of how to extract he Voice of the Customer from raw data.
+This folder contains examples in the R language for statistical computing of how to extract he Voice of the Customer from raw data using the case studies.
 
 #+begin_src bash :results raw
   # List files and extract first comment line
@@ -12,8 +12,8 @@ This folder contains examples in the R language for statistical computing of how
 #+end_src
 
 #+RESULTS:
+- =03-text-analysis-introduction.R=: Exploratory analysis of simulated interviews
+- =04-sentiment-analysis.R=: Sentiment Analysis examples
 - =consumer-involvement.R=: Analyse Customer Survey Data (Involvement)
 - =customer-survey.R=: Analyse Customer Survey Data
-- =sentiment-analysis.R=: Sentiment Analysis examples
 - =twitter-sentiment-anaysis.R=: Tapwater tweet sentiment analysis
-- =word-network.R=: Generate network of words within a text

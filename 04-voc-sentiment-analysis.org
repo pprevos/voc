@@ -1,5 +1,5 @@
 #+title: Sentiment Analysis
-#+property:     header-args:R :session *R* :colnames yes :tangle scripts/sentiment-analysis.R :exports results :results value
+#+property:     header-args:R :session *R* :colnames yes :tangle scripts/04-sentiment-analysis.R :exports results :results value
 #+bibliography: book/voc.bib
 #+macro: voc /Voice of the Customer/
 
@@ -112,6 +112,7 @@ When joining the six example sentences from table [[tab-sent-ex]] to the NRC lex
 
 #+header: :file images/sentiment-nrc.png :width 600 :height 300
 #+begin_src R :results output file graphics
+  # Visualise emotive labels
   # Use NRC lexicon
   nrc <- test_corpus |>
     unnest_tokens(word, text) |>
@@ -328,7 +329,7 @@ This case study uses an extract of 301 Tweets extracted in March 2018 from the s
 The first step in cleaning the data is to create unigrams, which involve splitting the tweets into individual words that can be analysed. The first step is determining which words are most commonly used in the tap water tweets and visualising the result. The most common phrases are related to drinking and bottled water, which makes sense. The recent issues in Kentucky feature in this list.
 
 #+header: :width 800 :height 500
-#+begin_src R :results output file graphics :file images/tap-water-tweets-words.png
+#+begin_src R :results output file graphics :file images/sentiment-tap-water-tweets-words.png
   # Tap water tweets case study
   library(stringr)
   library(stringi)
@@ -366,7 +367,7 @@ The first step in cleaning the data is to create unigrams, which involve splitti
 #+caption: Ten most common words in March 2018 tap water tweets (/n/ = 301).
 #+name: fig-tapwater-tweets-words
 #+RESULTS:
-[[file:images/tap-water-tweets-words.png]]
+[[file:images/sentiment-tap-water-tweets-words.png]]
 
 The sentiment analysis compares the above-discussed methods: the AFINN method [cite:@nielsen_2011_anew], the sentimentr R package [cite:@rinker_2021] and using the Llama model version 3.1. Some of the tweets were not scored by Llama due to obscene language. The model provided a text response instead of a number. The boxplots in figure [[fig-tapwater-tweets-sentiments]] visualise the difference in the distribution of scores for these three methods. The AFINN scores were divided by five to normalise them from $-1$ to $+1$.
 

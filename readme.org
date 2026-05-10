@@ -7,7 +7,7 @@ This project is provides open source book about methods to measure the /Voice of
 - Scripts analysing the case study data (R language for statistical computing)
 
 * Voice of the Customer Book
-This book is written in [[https://github.com/pprevos/emacs-writing-studio][Emacs Org mode format]] and the R language for statistical computing. When completed, it wil be published as an ebook and paperback and made available through your favourite book seller (except for Amazon because they don't allow open source books).
+This book is written in [[https://github.com/pprevos/emacs-writing-studio][Emacs Org mode format]], the R language for statistical computing to generate and analyse data, and create visualisations and GraphViz for graphics. When completed, it wil be published as an ebook and paperback and made available through your favourite book seller (except for Amazon because they don't allow open source books).
 
 The Org mode source files to generate the book versions are available in this repository. Note that these are early drafts of the text as this is a work in progress:
 
@@ -19,6 +19,8 @@ The Org mode source files to generate the book versions are available in this re
 6. [[file:06-voc-surveys.org][Quantitative Surveys]]
 7. [[file:07-voc-indirect.org][Indirect Voice of the Customer Measurement]]
 8. [[file:08-voc-implementation.org][Synthesis]]
+
+To create an ebook from the plain text files and images you need to use Emacs and the Emacs Writing Studio configuration. It will also require LaTeX (for formulas and PDF versions), the R language and GraphViz.
 
 * Directories
 - =book=: Files to generate the book (bibliography)
