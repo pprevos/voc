@@ -1,5 +1,5 @@
 #+title: Introduction to Computational Text Analysis
-#+property:     header-args:R :session *R* :exports results :tangle scripts/04-text-analysis-introduction.R
+#+property:     header-args:R :session *R* :exports results :tangle scripts/03-text-analysis-introduction.R
 #+bibliography: book/voc.bib
 #+cite_export:  csl book/apa6.csl
 #+macro:        voc /Voice of the Customer/
@@ -49,7 +49,7 @@ Tokenisation interprets a text as a 'Bag of Words'. This approach represents a d
 #+caption: From natural language to a bag of words.
 #+name: fig-bow
 #+RESULTS:
-[[file:images/bag-of-word.png]]
+[[file:images/text-bag-of-word.png]]
 
 Before tokenising a text, we need some pre-processing. The most common first step in tokenisation workflows is to convert the text to lowercase and remove punctuation, except hyphens and apostrophes. Some applications also remove numbers and redundant whitespace. The level of pre-processing depends on the purpose of the analysis.  In some more advanced applications, exclamation and question marks are retained. When analysing social media, we also need to consider emoticons, hashtags and other domain-specific symbols.
 
@@ -321,7 +321,7 @@ In the previous sections, we started with a corpus and applied one or more pre-p
 #+caption: Unstructured text processing pipeline.
 #+name: fig-workflow
 #+RESULTS:
-[[file:images/dtm-workflow.png]]
+[[file:images/text-dtm-workflow.png]]
 
 We have worked our way up from plain word-count vectors to a Document-term Matrix, and improved it with word stemming and the Term Frequency-Inverse Document Frequency. But none of these methods can encode meaning. Synonyms are still seen as separate words, and matrix methods ignore word order.
 
@@ -368,7 +368,7 @@ The angle between the vectors expresses the similarity between words or phrases.
 #+attr_latex: :width 0.5\textwidth
 #+attr_org: :width 400
 #+RESULTS:
-[[file:images/embedding-example.png]]
+[[file:images/text-embedding-example.png]]
 
 Neural networks create static vector embeddings for individual words. Each word has a fixed coordinate in the hyper-dimensional space. While this is a leap forward compared to the DTM, it has a fundamental flaw because it cannot handle polysemy, which is words with multiple meanings. In a static model, the word "service" in "The service pipe is leaking" and "The customer service was excellent" is represented by the exact same vector. The model essentially "averages" the two meanings, which can introduce noise into the analysis.
 
@@ -450,7 +450,7 @@ Viewing the most common words in a text can provide a quick summary of its conte
 #+attr_html: :width 600 :height 400
 #+name: fig-cloud
 #+RESULTS:
-[[file:images/word-count-cloud.png]]
+[[file:images/text-word-count-cloud.png]]
 
 Word clouds are popular, but they are more decorative than useful as an analytical data visualisation. Word clouds use a lot of space to convey a small list of values. They have, using a technical term, a low 'data-to-ink-ratio' [cite:@tufte_2001_visual p. 93;]. This ratio (nowadays better known as the data-to-pixel ratio) indicates the fewest pixels needed to convey the most information. This ratio indicates the information density of a visualisation [cite:@prevos_2019_prin].
 
@@ -477,13 +477,13 @@ A bar chart is a more informative method to visualise word frequencies. Before c
 #+caption: Word frequencies of interviews.
 #+name: fig-freq
 #+RESULTS:
-[[file:images/word-count-barchart.png]]
+[[file:images/text-word-count-barchart.png]]
 
 Manually removing filler words requires judgment over which words are important and which ones are not. The analyst needs to determine which words are part of the signal and which are noise. Using a mathematical approach, visualising the TF-IDF removes subjectivity and might yield more useful results.
 
 Visualising the ten words with the highest TF-IDF for each interview identifies which words are most important or unique to a specific interviewee, relative to the corpus. The chart in figure [[fig-tfidf]] visualises the top-ten TF-IDF scores for each interviewee. This overview enables drawing conclusions about the differences in language use. In this case, we can learn more about each interviewee's profile. We could use the same approach to compare the answers to the ten questions.
 
-#+header: :file images/tetx-tf-idf-barchart.png
+#+header: :file images/text-tf-idf-barchart.png
 #+header: :width 800 :height 600
 #+begin_src R :results output file graphics
   # Visualise TF-IDF
@@ -507,7 +507,7 @@ Visualising the ten words with the highest TF-IDF for each interview identifies 
 #+caption: Highest TF-IDF Words by Interview
 #+name: fig-tfidf
 #+RESULTS:
-[[file:images/tf-idf-barchart.png]]
+[[file:images/text-tf-idf-barchart.png]]
 
 The TF-IDF method provides word counts, but it does not explain the meaning of these words. The graph by itself is meaningless and does not provide any clear insight. We need to move from the 'thin description' of numbers to a 'thick description', moving from quantitative metrics to qualitative meaning. We are essentially converting a qualitative narrative into numeric data and then back to qualitative information. To make sense of the TF-IDF results, we need to reconstruct the context in which they were recorded. To achieve this goal, we can use either natural intelligence or its artificial counterpart; we can either have humans place these words in context or deploy a large language model.
 
