@@ -5,7 +5,6 @@
 #+cite_export: csl book/apa6.csl
 #+todo: DRAFT EDITED | REVIEWED
 
-* EDITED The Social Importance of Water
 Almost all publications on water management open with the cliché that water is essential to life, health, and human dignity. It is an immutable truth that without water life is impossible and that it is an irreplaceable resource for commercial processes, most significantly food production and power generation [cite:@kurland_2010_water;@braden_2009_social;@wagner_2013_soc]. But this description is only a partial truth about water consumption.
 
 Humans require about seventy litres per person per day for life's essentials, including growing food [cite:@reed_2011_how]. However, water consumption in countries with improved water supplies is much higher than seventy litres per person per day. The difference between the minimal amount required to maintain life and actual consumption is not wasted; it provides intangible social benefits. Water not only ensures physical life but also enables social interactions [cite:@wagner_2013_soc; @allon_2006_dams].
@@ -16,7 +15,7 @@ Water professionals excel at measuring the physical characteristics of water sup
 
 This book helps water professionals to reach beyond the water meter by introducing a collection of tools to understand the customer experience. Incorporating the {{{voc}}} (VOC) to capture experiences and opinions as a data stream enlists consumers as measurement devices, providing insight into the complete water cycle, both upstream and downstream of the water meter.
 
-** Customer Centricity
+* Customer Centricity
 As natural monopolies, there is little economic incentive for a water utility to be customer-centric in the same way as commercial entities in the free market are. Water utilities don't need to find new customers or prevent existing ones from changing service provider. Recent societal developments have changed this basic economic truth, compelling water utilities to act more like free-market participants and to elevate their anonymous rate payers to customers with individual needs. The spectre of water shortages around the world has increased attention for water. This attention is largely aimed at the future uncertainty of water supplies due to population growth and climate change. Additionally, water utilities struggle with ageing infrastructure and invest substantial sums to maintain high service levels for the communities they serve. These problems put pressure on water prices, no pun intended. Regulators and the public insist that water utilities focus more on customers, beyond simply providing a reliable water supply through technological solutions. Also, customer advocacy groups compel water utilities to improve the quality of their customer engagement [cite:@prevos_2017_cust].
 
 The increased attention from regulators on how utilities relate to customers has profoundly changed the industry across many jurisdictions worldwide. Regulatory frameworks often require water utilities to initiate customer engagement programs. Economic regulation acts as a proxy for the motivational mechanisms intrinsic to competitive markets that drive service providers to maximise value for their customers [cite:@prevos_2017_cust]. Although water utilities do not compete for customers, most regulators stimulate artificial competition. Regulators use market-mimicking practices, such as performance benchmarking, to hold utilities accountable to their customers. In this so-called 'yardstick competition' business performance of monopolistic service providers is compared with peer organisations [cite:@braadbaart_2007_coll]. 
@@ -46,19 +45,23 @@ Water industry technical journal articles contain a wide range of synonyms to de
 The psychological contract between the service provider and the customer can be visualised with a relationship ladder. More personal terms score high on the obligation and expectation dimensions, while labels that indicate an impersonal relationship signify low expectations for both parties (figure [[fig-ladder]]). The highest number of search hits in water industry journals (public, community, household) are placed at the bottom of the relationship ladder, as they refer to groups of people. The other three labels (user, consumer, and customer) are higher up the ladder, as they refer to a more personal relationship. The larger the number of people covered by the label, the weaker the relationship. Referring to water beneficiaries as the public suggests a weaker relationship than referring to them as customers. Figure [[fig-ladder]] shows that collective labels are more common in the industry literature than individual customer labels. The collective labels emphasise the social benefits of water and the dominance of professional judgement, while the singular labels emphasise the private benefits of water and consumer judgement [cite:@laing_2003_mark]. The more common use of collective labels rather than singular labels indicates self-identification within the water utility industry as an impersonal public service rather than a private one.
 
 #+header: :width 800 :height 500
-#+header: :file images/relationship-ladder.png
+#+header: :file images/intro-relationship-ladder.png
 #+begin_src R :results output file graphics  :exports results
   # Relationship ladder for IWA journals
-
   library(ggplot2)
-  label <- c("Public", "Community", "Household",
-             "User", "Consumer", "Customer")
-  Entries <- c(2425, 1282, 555, 251, 208, 194) # 8 May 2015
-  ladder <- data.frame(label, expectation = 1:6, obligation = 1:6, Entries)
+
+  ladder <- data.frame(label = c("Public", "Community", "Household",
+                                 "User", "Consumer", "Customer"),
+                       expectation = 1:6,
+                       obligation = 1:6,
+                       entries = c(2425, 1282, 555, 251, 208, 194),
+                       dy = c(0, 0, 2, 2, 3, 3))
+
   ggplot(ladder) +
     aes(x = expectation, y = obligation, label = label) +
-    geom_point(colour = "grey", size = Entries / 40) + scale_size_area(max_size = 20) +
-    geom_text(color = "gray20", vjust = 2) +
+    geom_point(aes(size = entries), colour = "grey", show.legend = FALSE) +
+    scale_size_area(max_size = 60) +
+    geom_text(color = "gray20", vjust = ladder$dy) +
     expand_limits(x = c(0.5, 6.5), y = c(0.5, 6.5)) +
     labs(x = "Service Level Expectation",
          y = "Service Level Obligation") +
@@ -76,9 +79,13 @@ Marketing scholars circumvent the labelling complexity by referring to anyone wi
 ** DRAFT The Voice of the Customer in Water Utilities
 The literature on implementing a VOC program more often than not focuses on the shared goals of commercial organisations, such as retaining existing customers and returning to shareholders. A well-designed VOC program can deliver a competitive advantage over those service providers who choose not to listen to their (potential) customers. Water utilities have a different reason for being than commercial organisations. Customer acquisition and retention are not a concern for a service provider that is a natural monopoly, so a VOC program needs to reflect the specific environment in which a water utility operates.
 
+The fact that customers cannot choose a different water utility when they are unhappy with the service they receive places greater importance on water utilities understanding the customers. The power of buyers in the utility market has a political dimension and utilities are motivated to be customer-centric through political pressure and regulation [cite:@prevos_2017_cust].
+
+Another significant difference between commercial organisations and water utilities is that commercial companies seek to maximise sales, while water utilities want to restrain consumption to preserve natural resources. While the commercial world focuses on marketing, water utilities practice 'demarketing' [cite:@prevos_2017_cust; @kotler_1971_demar].
+
 Customers express their views on the service provider, either directly or indirectly. The direct {{{voc}}} relates to the literal voice of the customer through customer contacts phone, email and so on), user-generated online content such as social media but also earned media. The direct VOC is also recorded in surveys, either through qualitative comments or qualitative scales. The VOC can also be indirectly derived from technical measurements in a water supply system. Water engineers measure pressure, flow, and quality parameters that indirectly reflect how consumers experience water service. These measurements reflect the engineer's perspective on a water system's performance, but that is not necessarily the same as the customer's perspective.
 
-** Applications
+** EDITED Applications
 :NOTES:
 - [X] investment decisions
 - [X] Yardstick competition
@@ -95,7 +102,7 @@ Triple Bottom Line (TBL) accounting, first coined by John [cite/t:@elkington_199
 
 Water utilities not only provide core services through their pipes, but also offer supporting services that include facilitating and enhancing elements [cite:@lovelock_2007_serv]. The core service is the fundamental benefit the utility provides (clean, reliable water services). The facilitating services are required to deliver the core service, such as payment and billing. Enhancing services adds extra value and appeal for customers, such as consultation on how to use water or assistance with financial hardship. A {{{voc}}} program provides information about how customers perceive the core services. Core services are less configurable than supporting services. Data from a VOC program also helps water utilities to design supporting services to maximise benefit to consumers.
 
-* Phenomenology of the Customer Experience
+* EDITED Phenomenology of the Customer Experience
 :NOTES:
 - [ ] Latent variables
 - [ ] neuromarketing
@@ -107,7 +114,7 @@ The customer experience is a complex phenomenon that begins with the objective p
 We can only understand the voice of the customer as an expression of the customer experience through this multimodal lens. There is no customer experience-o-meter we can attach to someone's brain to determine their state of mind when using tap water.
 
 #+header: :width 1200 :height 600
-#+begin_src dot :file images/voice-of-the-customer.png
+#+begin_src dot :file images/intro-voice-of-the-customer.png
   digraph voc {
       dpi=300;
       rankdir=TB;
@@ -135,16 +142,17 @@ We can only understand the voice of the customer as an expression of the custome
 #+end_src
 #+caption: Conceptual Framework for Voice of the Customer (VoC) in Water Utilities.
 #+name: fig-voc
+#+attr_latex: :width 0.9\linewidth
 #+RESULTS:
 [[file:images/voice-of-the-customer.png]]
 
-The phenomenology of the customer experience prioritises the consumer's first-person perspective over the engineer's physical measurements. From the perspective of the water utility the objective reality of a water supply is expressed in units such as kilopascals, NTUs and cubic meters. However, the customer does not experience pH 7.2; they experience softness on their skin or a crisp taste in their glass.
+The phenomenology of the customer experience prioritises the consumer's perspective over the engineer's physical measurements. From the perspective of the water utility the objective reality of a water supply is expressed in units such as kilopascals, NTUs and cubic meters. However, the customer does not experience pH 7.2; they experience softness on their skin or a crisp taste in their glass.
 
 The phenomenology of water consumption is complex because objective physical parameters cannot always be directly translated to the subjective customer experience. A consumer enjoying a bath might experience it as an event in which she contemplates her life or generates creative ideas. Expressing this in terms of physical parameters such as pH, turbidity, and so on does not do justice to the customer's experience. The experience of tap water is thus defined by a complex a combination of factors, dominated by subjectivity.
 
 This book is not arguing to replace physical metrics in favour of subjective customer opinions. Both types of measurements are of equal importance to the effective functioning of a water utility, or any provider of technical services. The {{{voc}}} add a secondary sensory layer. Just as a pump has a vibration sensor to detect bearing wear, the VOC program is a "social sensor" for operational health.
 
-* How to Read this Book
+* EDITED How to Read this Book
 :NOTES:
 Chapters:
 2. [@2] Quantitative Customer surveys; Latent Variables and Factor Analysis.
@@ -158,7 +166,7 @@ Chapters:
 :END:
 The remaining chapters of this book are divided into three parts. Chapters two to five discuss analysing qualitative information from traditional manual methods to cutting-edge Large Language Models (LLM). The following two chapters discuss numeric methods for extracting meaning from surveys and for converting operational data to the customer's perspective. The final chapter discusses options for implementing and operationalising a {{{Voc}}} program.
 
-Qualitative data analysis is an ancient technique that is as old as writing itself. Through the ages, scholars have developed systematic approaches to extract meaning from large volumes of text. With the advent of powerful computers, the paradigm has shifted to a more mathematical approach. Chapter [[#chap-qual]] discusses techniques for analysing textual data, including content and thematic analysis. With the advent of the internet, these techniques are no longer sustainable due to the vast amount of textual data available. The second part of this chapter outlines computational methods for extracting VOCs from a large collection of texts (a corpus).
+Qualitative data analysis is an ancient technique as old as writing itself. Through the ages, scholars have developed systematic approaches to extract meaning from large volumes of text. With the advent of powerful computers, the paradigm has shifted to a more mathematical approach. Chapter [[#chap-qual]] discusses techniques for analysing textual data, including content and thematic analysis. With the advent of the internet, these techniques are no longer sustainable due to the vast amount of textual data available. The second part of this chapter outlines computational methods for extracting VOCs from a large collection of texts (a corpus).
 
 Before computers can analyse a text, it must be converted to a numeric format. Chapter [[#chap-text]] introduces the basic principles of statistically exploring a text corpus. This chapter explains how to convert a text corpus into tokens and convert unstructured textual data into a matrix suitable for statistical analysis. This chapter closes with an introduction to word embeddings, the most advanced method for converting text to a numeric representation used in LLMs. This chapter closes with a case study using a transcript of simulated interviews with a water utility customers to demonstrate these various techniques and perform an exploratory analysis.
 
@@ -172,7 +180,7 @@ The penultimate chapter provides some examples of indirect VOC measurement using
 
 The final chapter discusses methods for implementing {{{voc}}} techniques across various use cases in a water utility. Knowing what customers talk about and how they feel about it is interesting, but we need to extract actionable insights from this data. Finally, extracting information from customers has ethical implications, so this book concludes with thoughts and recommendations on collecting sensitive customer data and using algorithmic fairness to ensure that the data is collected in the best interests of the community. 
 
-* Supplementary Material and Licensing
+* EDITED Supplementary Material and Licensing
 This book is accompanied by relevant data and source code in the R language for statistical computing [cite:@team_2026_r] and associated external packages to illustrate the analytical techniques described in this book. The code used to analyse the case studies is not included in these pages, but is only available on a GitHub repository.[fn:1] For more information on how to use the R language to solve water management problems, refer to /Data Science for Water Utilities/ [cite:@prevos_2023_r4h2o].
 
 All code in this repository is licensed under the GNU General Public License (version 3). This license grants four basic freedoms:
