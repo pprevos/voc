@@ -1,5 +1,5 @@
 #+title: Extracting Value from Quantitative Survey Data
-#+property: header-args:R :session *R* :exports results
+#+property: header-args:R :session *R* :exports results :tangle scripts/06-survey-data.R
 #+startup: latexpreview
 
 * Introduction
@@ -103,12 +103,11 @@ Figure [[fig-pii-boxplot]] visualises the distribution of the results or each of
 
 We can draw some preliminary conclusions from these results. The first five questions, which relate to cognitive involvement score higher than the remaining questions about affective involvement. This make intuitive sense because water is essential to life, but we don't tend to form an emotional relationship with water as we do with other products, such as our cars.
 
-#+begin_src R :results output file graphics :file images/pii_distribution.png :width 1200 :height 600
+#+begin_src R :results output file graphics :file images/pii-distribution.png :width 1200 :height 600
+  # Analyse Customer Survey Data (Involvement)
+
   ## Cleaning customer survey data
-  library(readr)
-  library(dplyr)
-  library(ggplot2)
-  library(tidyr)
+  library(tidyverse)
 
   # Suburb dimension table
   suburbs_dim <- tibble(suburb = 1:3,
@@ -125,7 +124,7 @@ We can draw some preliminary conclusions from these results. The first five ques
     select(c(1, 52, 21:51, -33))
 
   # Personal Involvement Index
-  pii_raw <- select(customers, customer_id, starts_with("p")) |>
+  pii <- select(customers, customer_id, starts_with("p")) |>
     mutate(p01 = 8 - p01,
            p02 = 8 - p02,
            p07 = 8 - p07,
@@ -133,11 +132,11 @@ We can draw some preliminary conclusions from these results. The first five ques
            p09 = 8 - p09,
            p10 = 8 - p10) 
 
-  pii <- pii_raw[complete.cases(pii_raw), ] |>
+  pii_long <- pii[complete.cases(pii_raw), ] |>
     pivot_longer(-customer_id, names_to = "Item", values_to = "Response")
 
   # Visualise PII
-  ggplot(pii) +
+  ggplot(pii_long) +
     aes(Item, Response) +
     geom_boxplot(fill = "lightgrey") +
     theme_minimal(base_size = 40) +
@@ -146,7 +145,7 @@ We can draw some preliminary conclusions from these results. The first five ques
 #+caption: Distribution of responses to the PII survey.
 #+name: fig-pii-boxplot
 #+RESULTS:
-[[file:images/pii_distribution.png]]
+[[file:images/pii-distribution.png]]
 
 The boxplots show fairly high scores for all elements of the scale. The thick horizontal lines indicate the mean score and the grey boxes the 25^{th} and 75^{75} percentile. The dots represent statistical outliers. The score for p1 to p6 seem to be consistently higher than those for the other items.
 
@@ -159,7 +158,7 @@ But are we justified in drawing this conclusion based on a cursory review of a s
 
 Figure [[fig-pii-corr]] visualises the correlations between the individual items. For a measure with high validity we expect that the relevant items correlate higher with each other than with the other items. Figure [[fig-pii-cor]] visualises the correlation matrix for these ten items. 
 
-#+begin_src R :results output file graphics :file images/pii_correlations.png :width 600 :height 600
+#+begin_src R :results output file graphics :file images/pii-correlations.png :width 600 :height 600
   # Correlation between items
   pii_cor <- round(cor(pii_raw[, -1], use = "complete.obs"), 2)
 
@@ -177,7 +176,7 @@ Figure [[fig-pii-corr]] visualises the correlations between the individual items
 #+caption: Correlation matrix of the PII items.
 #+name: fig-pii-corr
 #+RESULTS:
-[[file:images/pii_correlations.png]]
+[[file:images/pii-correlations.png]]
 
 
 Cronbach alpha [cite:@devellis_2011_scale]
@@ -203,10 +202,36 @@ Cronbach alpha [cite:@devellis_2011_scale]
 
 The Cronbach alpha value for the PII results is 0.87
 
-** Validity
+** Factor Analysis
 
-#+begin_src R
+#+header: :file images/pii-factor-analysis.png
+#+begin_src R :results output file graphics
+library(psych)
+pii_fa <- fa(pii[, -1], nfactors = 2, rotate = "oblimin", fm = "ml")
+fa.diagram(pii_fa, main = NULL)
   
 #+end_src
+
+#+RESULTS:
+[[file:images/pii-factor-analysis.png]]
+
 * Obtaining Survey Constructs
 Analysing the validity and reliability of a survey construct usually only occurs in the design phase of the scale. Once a bank of questions has 
+
+#+header: :file images/pii-scores.png
+#+begin_src R :results output file graphics
+  library(tidyr)
+pii_scores <- pii %>%
+  mutate(cognitive = p01 + p02 + p03 + p04 + p05,
+         affective = p06 + p07 + p08 + p09 + p10) %>%
+  select(customer_id, cognitive, affective)
+
+pivot_longer(pii_scores, cols = -customer_id) %>%
+  ggplot(aes(value)) +
+  geom_histogram(fill = "dodgerblue 4") +
+  facet_wrap(~name) +
+  theme_minimal(base_size = 12) 
+#+end_src
+
+#+RESULTS:
+[[file:images/pii-scores.png]]
