@@ -5,8 +5,38 @@
 Using operational data to infer the voice of the customer
 :END:
 
+The criticism of lacking customer focus notwithstanding, water utilities are some of the most reliable service providers. Taxi company Uber is often lauded as an example of a market disrupter through their improvement of the taxi industry's value proposition. It is interesting to note that this successful company is in fact inspired by the high level of service provided by water utilities. The Uber website stated in 2015 that they aspire to become "just as reliable as running water".
+
+
+The customer need is not the same as the attributes of a product (in this case water quality, pressure and availability). A customer need is an abstract context-dependent statement describing the benefits sought by a customer [cite:@timoshenko_2019]. What this means is that 
+
+#+begin_src dot :file images/safe-good-water.png :width 1200 :height 600
+  graph voc {
+    rankdir=LR;
+    nodesep=0.6;
+    ranksep=1.0;
+    node [fontname="Arial", shape=none];
+    edge [fontname="Arial", shape=none];
+    
+  int -- ext [label="Service Quality", labeldistance=25]
+
+  int[shape=box, label="Intrinsic\n\nEngineering\nSafe Water\n\nPedictable\nRational\n\nIntangible\nCredence"]
+  ext[shape=box, label="Extrinsic\n\nPsychology\nGood Water\n\nUnpredictable\nNon-Rational\n\nTangible\nExperience"]
+
+}
+#+end_src
+#+caption: Safe vs Good Water
+#+name: fig-safe
+#+attr_latex: :width 0.6\textwidth
+#+attr_org: :width 400
+#+RESULTS:
+[[file:images/safe-good-water.png]]
 
 * The Time Price of Water
+Tap water is provided directly into the houses of consumers and the service is so reliable that it is taken for granted and has become a symbol of a modern civilised life [cite:@allon_2006_dams]. In places with well-functioning water supplies, water services are normalised and reside in the background of daily life. Tap water is so reliable that customers don't need to spare any thought about purchasing and consuming it. Consumers pay a relatively low time-price for their water, which renders it invisible to their daily lives. The time-price is the amount of time customers spend to use their water service, including billing, disruptions, complaints and so on. In tap water supply systems the time price trends to zero, customers open a tap and clean water appears. In areas without improved water supply, this time price can amount to several hours per day. Given that value is a function of the total cost to a customer, the lower the time price, the higher the level of service.
+
+The dissertation on which this book is based develops the notion of the /Invisible Water Utility/ [cite:@prevos_2016_invis]. This idea refers to the fact that the providers of tap water are invisible to consumers. Services provided by these organisations are neither differentiated nor branded and are enjoyed as a matter of course. Although this normalisation of water is one of the great achievements of the past century, it has also disconnected users from the source of water and from the organisations that provide this precious resource to their homes. 
+
 The co-creation of services implies that consumers sacrifice time to use water, in addition to the fee paid for the service. One of the leading causes in the growth of services in the developed world is the willingness of consumers to outsource their non-discretionary time in order to obtain additional discretionary time. Using time to enjoy a service is an opportunity cost to the consumer. 
 
 A service provider can increase value to the consumer value by minimising the amount of time required to enjoy the service [cite:@davies_1996_time; @becker_1965_time]. [cite/t:@nordhaus_1997] investigated the time-price of illumination through human history. From building open fires in prehistoric times to light bulbs in more recent times, the time-price for illumination, measured in hours work per Lumen hours, has reduced dramatically over the course of human history. The time price for electric illumination has been reduced to flicking the switch, paying a monthly bill and occasionally replacing the light. This concept can also be applied to reticulated water services [cite:@williams_2012_seein].
@@ -28,3 +58,6 @@ The time price to consumer can be measured by the amount of times they need to c
 * Complaints
 
 
+** Triangulation
+
+The following chapters describe the basic techniques to algorithmically extract insights from qualitative data.

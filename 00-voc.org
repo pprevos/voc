@@ -20,6 +20,7 @@
 #+latex_header: % Patch tabular/tabular* environments
 #+latex_header: \AtBeginEnvironment{tabular}{\tablefont}
 #+latex_header: \AtBeginEnvironment{tabular*}{\tablefont}
+#+latex_header: \usepackage{multirow}
 #+startup:      num content
 #+property:     header-args:R :session *R* :exports results
 
@@ -50,29 +51,23 @@
 :END:
 #+include: "01-voc-introduction.org" :lines "2-"
 
-* Extracting Value from Quantitative Survey Data
-:PROPERTIES:
-:CUSTOM_ID: chap-survey
-:END:
-#+include: "02-voc-surveys.org" :lines "2-"
-
-* Qualitative Data Science
+* Introduction to Qualitative Data Analysis
 :NOTES:
 
 :END:
 :PROPERTIES:
 :CUSTOM_ID: chap-qual
 :END:
-#+include: "03-vox-qualitative-data-science.org" :lines "2-"
+#+include: "02-vox-qualitative-data-science.org" :lines "2-"
 
-* Statistical Text Analysis
+* Principles of Statistical Text Analysis
 :NOTES:
 Introduction to quantitative text analysis; converting plain text to an analysable format and explore the content
 :END:
 :PROPERTIES:
 :CUSTOM_ID: chap-text
 :END:
-#+include: "04-voc-text-analysis.org" :lines "2-"
+#+include: "03-voc-text-analysis.org" :lines "2-"
 
 * Sentiment Analysis
 :PROPERTIES:
@@ -81,9 +76,18 @@ Introduction to quantitative text analysis; converting plain text to an analysab
 #+include: "05-voc-sentiment-analysis.org" :lines "2-"
 
 * Topic Analysis
-#+include: "06-voc-topic-analysis.org" :lines "2-"
+:PROPERTIES:
+:CUSTOM_ID: chap-topics
+:END:
+#+include: "04-voc-topic-analysis.org" :lines "2-"
 
-* Indirect 
+* Extracting Value from Quantitative Survey Data
+:PROPERTIES:
+:CUSTOM_ID: chap-survey
+:END:
+#+include: "06-voc-surveys.org" :lines "2-"
+
+* The Indirect Voice of the Customer 
 #+include: "07-voc-indirect.org" :lines "2-"
 
 * Synthesis

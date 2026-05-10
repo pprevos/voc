@@ -12,11 +12,11 @@ This book is written in [[https://github.com/pprevos/emacs-writing-studio][Emacs
 The Org mode source files to generate the book versions are available in this repository. Note that these are early drafts of the text as this is a work in progress:
 
 1. [[file:01-voc-introduction.org][Introduction]]
-2. [[file:02-voc-surveys.org][Quantitative Surveys]]
-3. [[file:03-vox-qualitative-data-science.org][Introduction to Qualitative Data Analysis]]
-4. [[file:04-voc-text-analysis.org][Principles of Compuational Text Analysis]]
-5. [[file:05-voc-sentiment-analysis.org][Extracting Sentiments]]
-6. [[file:06-voc-topic-analysis.org][Analysing Topics]]
+2. [[file:02-voc-qualitative-data-science.org][Introduction to Qualitative Data Analysis]]
+3. [[file:03-voc-text-analysis.org][Principles of Compuational Text Analysis]]
+4. [[file:04-voc-sentiment-analysis.org][Extracting Sentiments]]
+5. [[file:05-voc-topic-analysis.org][Analysing Topics]]
+6. [[file:06-voc-surveys.org][Quantitative Surveys]]
 7. [[file:07-voc-indirect.org][Indirect Voice of the Customer Measurement]]
 8. [[file:08-voc-implementation.org][Synthesis]]
 

@@ -3,12 +3,20 @@
 #+startup: latexpreview
 
 * Introduction
-
+:NOTES:
+- [ ] Explain latent constructs
+- [ ] Survey bias
+:END:
 When water utility professionals measure physical parameters such as pH or pressure, they use instruments that provide a signal that provide that information. These instruments do, however, not directly measure these parameters but apply physics and chemistry to create a proxy that can be tranformed to an electrical signal. Engineers who rely on these instruments understand how these devices and ensure they are calibrated.
 
 Unfortunately, when measuring the {{{voc}}} through surveys, this professional rigour is often abandoned.
 
+
+
 This chapter discusses how to use quantitative surveys to elicit the voice of the customer. 
+
+When analysing texts to extract sentiment we are . A survey is a method to deeper analyse a specific attitude. 
+
 
 * Constructing Survey Questions
 
@@ -21,6 +29,10 @@ Any customer that answers six or lower is a detractor, customers that score nine
 
 $$NPS = \frac{100 (p - d)}{n}$$
 
+** Predefined Survey Constructs
+
+
+[cite:@bearden_2011_handb; @bruner_2012_market]
 
 
 ** Wording Questions
@@ -36,23 +48,30 @@ The technical quality dimension of the ServAqua scale consists of five
 
 ** Scaling
 *** Likert
+- Nominal scale
 
 *** Semantic Differential
 
-* Analysing Suyrveys
+*** Numeric
 
-** Protection agains bogus resposnes
+* Analysing Surveys
+
+
+** Exploratory Analysis Descriptive Statistics
+
+** Protection against bogus responses
 :PROPERTIES:
 :ID:       6fc638df-617e-4902-b63d-3a2e8bc77df3
 :END:
 
 Generative AI agents to complete surveys
 
-** Exploratory Analysis
-
 ** Missing Data
 Imputation
 
+
+** Reliability and Validity
+- Factor analysis
 
 * Case Study
 ** Consumer Involvement
@@ -66,7 +85,8 @@ The PII uses a semantic differential scale, shown in table [[tab-pii]]. Responde
  
 #+caption: Personal Involvement Index Scale.
 #+name: tab-pii
-| Dimension   |             |         <r> | Item |
+| Dimension   |             |             | Item |
+| <l>         | <l>         |         <r> | <c>  |
 |-------------+-------------+-------------+------|
 | Importance  | Important   | Unimportant | p01  |
 | Relevance   | Relevant    |  Irrelevant | p02  |
@@ -128,24 +148,31 @@ We can draw some preliminary conclusions from these results. The first five ques
 #+RESULTS:
 [[file:images/pii_distribution.png]]
 
-These findings seem to contradict the general wisdom in water utility and business literature that the level of consumer involvement in tap water is low. The fact that water is essential to life suggests that consumers of tap water have a high level of involvement with the service. This situation seems paradoxical because both assertions cannot be true at the same time. This paradox can be resolved by looking at involvement from two different angles. Tap water as an essential product will logically attract a high level of cognitive involvement because life in the developed world without it is unthinkable. However, as a non-branded, undifferentiated, monopolistic service, the level of affective involvement it attracts will be significantly lower [cite:@prevos_2017_cust].
+The boxplots show fairly high scores for all elements of the scale. The thick horizontal lines indicate the mean score and the grey boxes the 25^{th} and 75^{75} percentile. The dots represent statistical outliers. The score for p1 to p6 seem to be consistently higher than those for the other items.
+
+These findings seem to contradict the general wisdom in water and business literature that the level of consumer involvement in tap water is low. The fact that water is essential to life suggests that consumers of tap water have a high level of involvement with the service. This situation seems paradoxical because both assertions cannot be true at the same time. This paradox can be resolved by looking at involvement from two different angles. Tap water as an essential product will logically attract a high level of cognitive involvement because life in the developed world without it is unthinkable. However, as a non-branded, undifferentiated, monopolistic service, the level of affective involvement it attracts will be significantly lower [cite:@prevos_2017_cust].
 
 But are we justified in drawing this conclusion based on a cursory review of a series of boxplots? We need to undertake some further statistical analysis to ensure that we are actually measuring what we think we measure (consumer involvement) and that 
 
 * Reliability and Validity
 ** Reliability
 
-Figure [[fig-pii-corr]] visualises the correlations between the individual items. For a measure with high validity we expect 
+Figure [[fig-pii-corr]] visualises the correlations between the individual items. For a measure with high validity we expect that the relevant items correlate higher with each other than with the other items. Figure [[fig-pii-cor]] visualises the correlation matrix for these ten items. 
 
 #+begin_src R :results output file graphics :file images/pii_correlations.png :width 600 :height 600
+  # Correlation between items
   pii_cor <- round(cor(pii_raw[, -1], use = "complete.obs"), 2)
 
   library(ggcorrplot)
 
-  ggcorrplot(pii_cor, show.diag = FALSE, outline.color = "white",
-             show.legend = FALSE, lab = TRUE) +
+  ggcorrplot(pii_cor, show.diag = FALSE,
+             type = "lower",
+             outline.color = "white",
+             show.legend = FALSE,
+             lab = TRUE) +
+    labs(x = NULL, y = NULL) + 
     theme_minimal(base_size = 26) +
-    labs(x = NULL, y = NULL)
+    theme(legend.position = "bottom")
 #+end_src
 #+caption: Correlation matrix of the PII items.
 #+name: fig-pii-corr
@@ -156,17 +183,30 @@ Figure [[fig-pii-corr]] visualises the correlations between the individual items
 Cronbach alpha [cite:@devellis_2011_scale]
 
 #+begin_src R :results none
-  pii_cov <- cov(pii_raw[, -1], use = "complete.obs")
-  k <- ncol(pii_cov)
-  v <- mean(diag(pii_cov))
-  c <- mean(pii_cov[lower.tri(pii_cov)])
-  c_alpha <- (k * c) / (v + (k - 1) * c)
-  
+  # Reliability (Cronbach's Alpha)
+
+  cronback_alpha <- function(items) {
+    cov <- cov(items, use = "complete.obs")
+    k <- ncol(cov)
+    v <- mean(diag(cov))
+    c <- mean(pii_cov[lower.tri(cov)])
+    (k * c) / (v + (k - 1) * c) 
+  }
+
+  # Whole PII construct
+  cronback_alpha(pii_raw[, -1])
+
+  # Subconstructs
+  cronback_alpha(pii_raw[, 2:6])
+  cronback_alpha(pii_raw[, 7:11])
 #+end_src
 
-The Cronbach alpha value for the PII results is 0.87.
+The Cronbach alpha value for the PII results is 0.87
 
 ** Validity
 
+#+begin_src R
+  
+#+end_src
 * Obtaining Survey Constructs
 Analysing the validity and reliability of a survey construct usually only occurs in the design phase of the scale. Once a bank of questions has 

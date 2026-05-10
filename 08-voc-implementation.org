@@ -2,6 +2,140 @@
 #+macro:        voc /Voice of the Customer/
 
 
+* Measuring the Voice of the Customer
+Measuring the  {{{voc}}} involves a range of different statistical techniques, depending on the question that needs to be answered. 
+
+The ServAqua model for water utility service quality [cite:@prevos_2017_cust;@prevos_2016_serv2] distinguishes between two perspectives on water utility services.
+
+The ideal expression of the {{{voc}}} comes directly from customers themselves. Extrinsic measures for both core and supplementary services can be derived from surveys, complaint statistics, focus groups or activities such as mystery shopping. The age of social media and internet reviews also means that we have access to user-generated content that we can mine and analyse. Lastly, water utilities can also experiential events such as tap water tasting events.
+
+The intrinsic perspective is the view that the service provider has of service quality upstream from the water meter. For core services, technical quality could be measures such as water pressure and quality. Supporting services . While these performance measures are technically not expressions of the VOC, when defined appropriately, these intrinsic measures can express indirect measures of the customer experience.
+
+#+caption: The ServAqua model for service quality in water utilities.
+#+name: fig:servaqua
+#+begin_export html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .matrix-table {
+        border-collapse: collapse;
+        font-family: serif;
+        margin: 20px;
+    }
+    .matrix-table td, .matrix-table th {
+        padding: 10px 20px;
+        text-align: center;
+    }
+    /* The main data cells with borders */
+    .bordered {
+        border: 1px solid black;
+        width: 200px;
+        height: 80px;
+    }
+    /* Labels styling */
+    .label-bold {
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+    .label-italic {
+        font-style: italic;
+    }
+</style>
+</head>
+<body>
+
+<table class="matrix-table">
+    <tr>
+        <td></td>
+        <td></td>
+        <td colspan="2" class="label-bold">Perspective</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td class="label-italic">Intrinsic</td>
+        <td class="label-italic">Extrinsic</td>
+    </tr>
+    <tr>
+        <td rowspan="2" class="label-bold">Scope</td>
+        <td class="label-italic">Technical</td>
+        <td class="bordered">
+            Water Quality<br>
+            Pressure / continuity
+        </td>
+        <td rowspan="2" class="bordered">
+            Surveys<br><br>
+            Complaints<br><br>
+            Focus Groups<br><br>
+            Mystery Shopping
+        </td>
+    </tr>
+    <tr>
+        <td class="label-italic">Functional</td>
+        <td class="bordered">
+            Customer service metrics
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+#+end_export
+#+begin_export latex
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{cc|c|c|}
+\cline{3-4}
+\multicolumn{2}{c|}{} & \multicolumn{2}{c|}{\textbf{Perspective}} \\ \cline{3-4} 
+\multicolumn{2}{c|}{} & \textit{Intrinsic} & \textit{Extrinsic} \\ \cline{2-4}
+\multirow{4}{*}{\textbf{Scope}} & \multicolumn{1}{|l|}{\textit{Technical}} & Water Quality & Surveys \\
+ & \multicolumn{1}{|l|}{} & Pressure / continuity & Complaints \\ \cline{2-3} % Line stops at column 3
+ & \multicolumn{1}{|l|}{\textit{Functional}} & Customer service & Focus Groups \\
+ & \multicolumn{1}{|l|}{} & metrics & Mystery Shopping \\ \cline{2-4}
+\end{tabular}
+\end{table}
+#+end_export
+
+** Explicit Measurement
+The common sense answer to the question how we measure VoC is to simply ask customers.
+
+- Quantitative: Scaled surveys
+- Qualitative: Free text survey responses, focus groups
+  - Topics
+  - Sentiment (emotions)
+  - Trust
+  - Satisfaction
+- Experiential: Taste testing
+
+** Implicit Measurement
+:NOTES:
+- [ ] SCADA
+  - [ ] Pressure
+  - [ ] Flow
+- [ ] Laboratory
+- [ ] Translation to customer perspective
+  - [ ] From pressure to flow (how fast do I fill my bucket?)
+:END:
+
+Duncan (1984) argues that the roots of measurement lie in social processes and that these processes and their measurement actually precede science: "All measurement . . . is social measurement. Physical measures are made for social purposes" [cite:cited in @devellis_2011_scale;]. Water utility engineers and scientists measure the psychical, chemical and biological properties to achieve social objectives. They protect public health by providing clean drinking water, facilitate social cohesion by enabling swimming pools, enable food production, and whatever other purpose water has in society.
+
+** Qualitative versus Quantitative Data
+:NOTES:
+- [ ] Thick vs thin description
+:END:
+
+
+
+* Water Utility Performance Measurement
+:NOTES:
+- [[denote:20190712T153951][ISO 24510: Improvement of the Service to Users]]
+- [cite:@berg_2010_water]
+:END:
+
+Both data from upstream and downstream of the tap need to be in balance.
+
+
 
 
 * Experiential Data Collection

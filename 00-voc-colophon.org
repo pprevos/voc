@@ -1,3 +1,5 @@
+#+latex_class:  ews
+
 # Front Matter ePub
 #+begin_export html
 <!-- Front Matter ebook -->
@@ -35,11 +37,11 @@
 
 % Title Page
 \begin{center}
-  \textbf{\Huge Voice of the Customer for Water Utilities}\\
+  \textbf{\Huge Voice of the Customer\\for Water Utilities}\\
   \vspace{1.5cm}
-  \textbf{A Data-Driven Guide}\\
+  \textbf{\Large A Data-Driven Guide}\\
   \vspace{2em}
-  Peter Prevos\\
+  \large Peter Prevos\\
   % Logo and Publisher Information
   \vspace{9cm}
   \hspace{-1.2cm}
@@ -48,7 +50,7 @@
   \begin{picture}(0, 18)
       \put(0, 4){\shortstack[l]{Third\\Hemisphere\\Publishing}}
   \end{picture}
-  \\ Kangaroo Flat, Australia
+  \vspace{-2mm} \\ Kangaroo Flat, Australia
 \end{center}
 
 \thispagestyle{empty}
@@ -56,39 +58,29 @@
 
 % Copyright and Licensing Information
 \thispagestyle{empty}
-\noindent\makebox[\textwidth][c]{%
-\begin{minipage}[t]{1\textwidth}
+\noindent\begin{minipage}[t]{1\textwidth}
     \begin{center}
         \ccLogo{} \small Peter Prevos (2026)\\
         \vspace{1em}
         Kangaroo Flat, Australia\\
         {\small \href{https://peterprevos.com}{peterprevos.com}}
-
         \vspace{2em}
         ISBN 978-*** (Paperback)
     \end{center}
-
     \vspace{1.5em}
-
     \begin{center}
         {\small This work is licensed under a Creative Commons }\emph{\small Attribution-Share Alike 4.0 International}
-        {\small license. You are free to share—to copy, distribute, and transmit the work under the following conditions:}\\
+        {\small license.}\\
         \vspace{0.5em}
         \ccAttribution{} \emph{\small Attribution}{\small : You must attribute the work in the manner specified by the author (but not in any way that suggests that they endorse you or your use of the work).}\\
         \vspace{0.5em}
-        \ccShareAlike{} \emph{\small Share Alike}{\small : If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or similar license to this one.}
+        \ccShareAlike{} \emph{\small Share Alike}{\small : If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or similar license to this one.}\\
+        \vspace{2em}
+        {\small Written in Emacs \href{https://orgmode.org/}{Org Mode}. Typeset in \LaTeX.\\}
+        \vspace{2em}
+        {The author certifies that this work is a product of original human creativity. Genrative AI was used as a supportive tool for research and structural refinement, but the narrative, prose, and creative expressions are the sole work of the author.}
     \end{center}
-
-    \vspace{2em}
-
-    \begin{center}
-        {\small Written in Emacs \href{https://orgmode.org/}{Org Mode}. Typeset in \LaTeX.}
-    \end{center}
-    \vspace{2em}
-    \begin{center}
-        {The author certifies that this work is a product of original human creativity. Artificial Intelligence was used as a supportive tool for research and structural refinement, but the final narrative, prose, and creative expressions are the sole work of the author.}
-        \end{center}
-\end{minipage}}
+\end{minipage}
 
 \newpage
 \setcounter{page}{5}

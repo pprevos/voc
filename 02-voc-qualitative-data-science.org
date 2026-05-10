@@ -1,0 +1,113 @@
+#+title: Qualitative Data Science
+#+macro:        voc /Voice of the Customer/
+#+bibliography: book/voc.bib
+
+* Introduction
+Most available data that expresses the {{{voc}}} will be qualitative in nature. Customers express their voice either through speech or written text. We can transcribe calls from customers who reach out to the water utility to express their dissatisfaction or to manage their account. We can extract text from social media or other public channels, such as letters to editors and other earned media. Qualitative data also exists in the form of interview transcripts or open-ended questions in surveys.
+
+Analysing numeric survey data can yield actionable insights using traditional statistical analysis, but qualitative data analysis requires a wholly different approach. Tap water is a technical service so most professionals have a background in the physical or biological sciences and have not been trained in working with for qualitative data.
+
+Relying on quantitative analysis alone can only provided a limited description of reality. The richness of the human experience does not yield to numbers.
+
+#+begin_comment
+Thin vs thick description
+Is everything measurable (measuring is comparing with a standard)
+We want to understand the thoughts and attitudes of the subject, which is by definition subjective. The VOC is not about the object, so by its very nature not objective. In this sense subjective and objective are not value statements.
+
+[[denote:20250823T142309][Thick Description in Data Storytelling]]
+#+end_comment
+
+
+
+#+begin_quote
+Not everything that counts can be counted, and not everything that can be counted counts."  [cite:@cameron_1963_infor]
+#+end_quote
+
+This chapter discusses the principles of qualitative analysis. The first section outlines the principles of manual methods of analysing text as used by social scientists for many decades. These methods are still valuable for analysing small volumes of text. 
+
+However, in our age of electronic communication the amounts of qualitative data available for analysis for exceeds what a human can comprehensively analyse. I have analysed 55 million words of customer phone transcripts. At 200 words per minute it would take about 4,500 hours to read it all, excluding any analysis. It only took about 80 hours of work to analyse these text algorithmically and extract relevant insights. Most of this time was dedicated to scripting the analysis so that the analysis is reproducible when a new dataset is available. 
+
+* Human Analysis
+:NOTES:
+- [ ] https://getthematic.com/insights/methods-of-qualitative-data-analysis
+:END:
+The main four qualitative data analysis methods are thematic analysis, content analysis, discourse analysis, and narrative analysis. The choice of method depends on the research goals. /Thematic Analysis/ is the most common method that focuses on pasterns and themes in a text. This method is ideal for exploring interview data and assess customer and community needs and lived experience. /Content Analysis/ systematically quantifies and categorises data to uncover patterns and trends.  This is a mixed-method approach and focuses on reviewing keywords in a text, assessing their frequency and the relationship between the terms. /Narrative Analysis/ interprets a text as a story ane explores how people make sense of their experience. This technique would be useful when investigating how financial hardship impacts the life of water utility customers. Lastly, /Discourse Analysis/ studies language in context. This method can provide insight into customers lives [cite:@flick_2009].
+
+To extract the {{{voc}}} from a text corpus, thematic and content analysis are most suitable.
+
+https://www.youtube.com/watch?v=meWPPepnt_Q
+
+** Thematic Analysis
+https://gradcoach.com/what-is-thematic-analysis/
+
+** Content Analysis
+This method is most closely related to the computational methods used in 
+https://gradcoach.com/qualitative-content-analysis/
+
+
+* Computational Analysis
+Most data related to the {{{voc}}} is natural language in the form of text, either written by the customer themselves or transcribed from their spoken words, which is notoriously hard to analyse computationally. Human minds have evolved to process language and navigate its ambiguities. But even for natural intelligence the meaning of spoken or written words is not always perfectly transparent. Since the early days of computing scientists have sought to codify language in algorithms. Anyone who has even systematically studied languages will acknowledge that there is no deterministic algorithm that can understand language.
+
+
+#+begin_comment
+Evolution of NLP
+- Eliza
+- Adventures
+- NLP
+- Neural Networks
+- LLM
+#+end_comment
+Computers a machines governed by logic. Natural language does not yield to the simplistic logic available in computing architecture.
+
+One of the earliest examples of computers simulating human language is ELIZA, created by Joseph [cite/t:@weizenbaum_1966_eliza] at MIT. This software was able to simulate conversation using pattern matching and word substitution creating the illusion that the program understands the input. The most famous implementation of this program was a script that simulates a psychotherapist. In the 1980s the computer world was introduced to text adventures also called interactive fiction. These popular games contained basic text parsers to create the illusion of a dynamic story. 
+
+
+Examples of electronic files that express the {{{voc}}} are transcripts of phone calls, chat messages, social media, reviews, newspaper articles, and any other electric means. This raw data is easily accessible through an Application Programming Interface (API). Textual data is available in different formats, such as flat text (TXT or JSON files). Text files that include formatting (PDF or word processor formats) easily convert to plain text files with Open Source tools such as Pandoc.
+
+
+
+But machines cannot process natural language in its raw form to provide insights. Analysing texts with machines is essentially a mixed method approach. To qualitatively analyse natural language we first need to convert it to a method that enabled computation and convert a text into a set of numbers. Chapter [[#chap-text]] discusses three methods exist to achieve this goal. After the numeric representation of the text has been analysed we then need to qualitatively assess the output to provide it with meaning.
+
+
+
+** Natural Language Processing
+
+Content analysis
+
+** Machine learning
+
+
+
+** Large Language Models
+:PROPERTIES:
+:ID:       98796cbd-db26-4fd8-97b4-8e5de04d04ac
+:END:
+Large Language Models (LLM) have revolutionised how we understand language computationally.
+
+LLMs are mostly know for their use as a chatbot where a user enters text and the model responds accordingly. But this is only one use case for large language models. Firstly, retrieval-augmented generation (RAG) is a method whereby the model is enhanced with local knowledge through a document library. So when the user enters prompt, the system first retrieves text from the library that closely matches the prompt, feeds that to the LLM and then responds accordingly. This approach deepens the generic capability of the model. An obvious use case for a water utility is using a library of operation manuals and procedures so the user can converse in natura language with this knowledge base.
+
+A RAG system is a special application of an LLM tools. A tool is a predefined prompting session to give the model a narrow and specific task using prompt engineering techniques. When, for example, using the persona prompt pattern, the model is instructed to act as a specialist: "You are a water utility professional, specialised in customer service" [cite:@white_2023_prom]. Tools are generally scripted in a computing language such as Python or R which contact the LLM through an API (Application Programming Interface). More advanced applications of tools could, for example, use the output of the LLM as the input for a mathematical analysis. Tools can also be configured so that the model generates code, such as an SQL query to extract data. The chapter on sentiment analysis contains an example of a tool to convert a sentence to a sentiment score.
+
+AI agents are the most complex LLM interaction. They operate in the same manner as a tool, but they have agency, which means that the tool can change the state of a system. When, for example, a customer rings to change their address, an LLM tool can parse their request, validate the new address using a standard algorithm, and then change the billing system by calling a query.
+
+A language model can also be used as a mathematical model, rather than generating text. 
+
+The existence of Large Language Models notwithstanding, traditional methods are not rendered obsolete by this technology. Firstly, an LLM is computationally intensive, even for the most simple tasks. There are also systemic problems with this technology, such as context drift require well-designed prompting techniques and hyper parameter settings to prevent hallucinations.
+
+But we can leverage some of the benefits from LLMs in understanding the {{{voc}}}, discussed in the next three chapters.
+
+The examples and case studies in this book use Large language Models beyond their capability as a friendly and occasionally sycophantic chat bot. For a technical organisation like a water utility their true power lies in their strength as a reasoning engine. Some other examples of LLM usage are:
+
+The first application to mention is semantic search and Retrieval-Augmented Generation (RAG). This implementation uses vector embeddings, the foundational data structure of an LLM, to meaningfully search through linked documents. Instead of the hit and mis issues when searching for keywords, an LLM can associate words by their meaning and intent, further explained in chapter [[#chap-sentiment]].
+
+A common use case for such technology is to develop a natural language interface to a collection of documents, such as manuals. With reference to the Voice of the Customer, RAG technology can create a chatbot to let water utility professionals converse with customers and the bot will respond as a typical customer would do, creating an ideal training environment.
+
+Vector embeddings are also used to
+
+An LLM can also be instructed to extract structured data from an unstructured text. 
+
+Then there is also the AI Agent. An agent is a system that combines traditional scripted computing with an LLM. The LLM is connected to a library of tools. A tool is in most cases a Python script that undertakes a specific task. For example, a customer converses with a chatbot and enters a phrase related to a leak in her street. The bot will match this text to descriptions in an agent library, which then undertakes a task such as raising a work order on the Asset Information Management System.
+
+[cite:@sinha_2024_ai]
+
+Both sentiment analysis and topic analyses are a classification problem. 

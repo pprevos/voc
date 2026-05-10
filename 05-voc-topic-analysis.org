@@ -14,6 +14,9 @@ The most common method to extract topics from a text corpus is Latent Dirichlet 
 [cite:@marwick_2013_disc; @oezdagoglu_2016_topic]
 
 ** Coherence
+:NOTES:
+- [ ] [[https://towardsdatascience.com/understanding-topic-coherence-measures-4aa41339634c/][Understanding Topic Coherence Measures | Towards Data Science]]
+:END:
 
 
 * Customer Contact Transcripts Case Study

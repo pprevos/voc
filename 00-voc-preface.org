@@ -1,19 +1,52 @@
 #+title: Preface
+:NOTES:
+- [X] Soft skills
+- [ ] Transition from engineer to social scientist
+- [ ] From text adventures to VoC
+- [ ] This book
+:END:
 
-In the fourth year of my civil engineer studies we had to take a compulsory subject about behavioural sciences. As almost fully qualified engineers this subject was a bit strange. There were no formulas, no mathematical models and no singular true answer to the questions. The mathematical rigour that applies to designing physical structures did not seem to apply to the world of human behaviour.
+In the fourth year of my civil engineer studies we took a compulsory subject about human behaviour. As almost fully qualified engineers this subject was mysterious to us. There were no formulas, no mathematical models and no singular correct answer to the questions. The mathematical rigour that applies to physical structures did not seem to apply to the human world. Needless to say that this subject was not the favourite among engineering students.
 
-Engineers like to refer to knowledge about human behaviour as a soft skill and the mathematical models of the physical world as hard skills. The term 'soft' hides a technocratic critique, contrasting these skills with the 'hard' technical skills, which in engineering cultures signals rigor, precision, and legitimacy. The phrase "It is not rocket science" seems to suggest that the science of rockets is the pinnacle of knowledge that not many other skills can attain. In the first few years in my engineering career I quickly learned that the dreaded soft skills are perhaps those that are as important for successful project delivery as the hard skills. Most of the work undertaken by engineers goes beyond the equations and models used to solve problem, but involve working with colleagues, the community in which we work, contractors, suppliers and other people in the complex network of relations that deliver engineering projects.
+Engineers like to refer to knowledge about human behaviour as a 'soft skill' and the mathematical models of the physical world as 'hard skills'. This terminology hides a technocratic attitude, contrasting the rigor, precision, and legitimacy of the physical sciences with the uncertainty of the social sciences. The common platitude that something is "not rocket science" suggests that the science of rockets, the science of things, is the pinnacle of knowledge that other fields of endeavour cannot aspire to.
 
-My interest as such shifted and I decided to do an correspondence Bachelor of Arts and learn more about the non-material world. 
+However, in the first few years in my engineering career I quickly learned that the dreaded soft skills are as important for successful project delivery as the hard skills. Most of the work undertaken by engineers goes beyond the equations and models used to solve problem, but involve working with colleagues, the community in which we work, contractors, suppliers and other people in the complex network of relations that deliver engineering projects. 
+
+My interest as such shifted and I decided to do an correspondence Bachelor of Arts degree and learn more about the non-material sciences. It taught me that the social sciences are not rocket science, but much more complex. But this does not mean that we 
 
 The journey from an Arts degree to a PhD in business was in fact
 
 I wrote a dissertation about the relationship between employee behaviour and the customer experience, using water utilities as a case study. The statistical skills gained through this research helped me to eventually lead the data science function at a water utility in regional Australia.
 
-Over the past decade I have undertaken several data projects to unearth the Voice of the Customer from our data. This book is a reflection from what I have learned over the years in dealing with this type of data.
+My experience with natural language computing started when playing and developing text adventures in the 1980s. These games were popular in a time when computes struggled with complex graphics. These games can only parse simple sentences like "Kill the dragon with the sword", but they were a lot of fun to play.  Now we have 
+
+Over the past decade I have undertaken several data projects to unearth the {{{voc}}} from our data. This book is a reflection from what I have learned over the years in dealing with this type of data.
 
 While the industry spends a lot of resources on improving how we manage engineering data using machine learning and other advanced statistical tools, customer data is as yet not
 
-This book is written for water professionals with some experience in analysing data who like to lern how  
+This book is written for water professionals with some experience in analysing data and who like to learn how  to create value from customer surveys and text data. Part of the content of this book have been copied from earlier work on my previous books on customer centricity in water utilities [cite:@prevos_2017_cust; @prevos_2016_invis] and expands on a chapter in my book on /Data Science for Water Utilities/ [cite:@prevos_2023_r4h2o].
 
 The book uses a series of case studies, the data and code for which are available on the accompanying GitHub repository for this book. 
+
+My main motivation to write this book is to educate the industry about best practice in analysing qualitative data
+
+The industry is also struggling with the fast technological developments in  the area of Artificial Intelligence. This book covers both the traditional and most recent analytical methods using Large Language Models. These new technologies have not rendered the traditional methods obsolete. A good understanding of the foundations of analysing customer data is necessary to get value from LLMs.
+
+* Acknowledgements
+
+Writing a book can be a lonely activity but it cannot exist without the help of colleagues and friends.
+
+Genevieve Hayes of the Data Science Impact Accelerator coaching program. 
+
+
+#+begin_export html
+&nbsp;
+<p style="text-align:right">Peter Prevos<br>Kangaroo Flat, June 2026</p>
+#+end_export
+#+begin_export latex
+\vspace{1em}
+\begin{flushright}
+Peter Prevos\\
+Kangaroo Flat, June 2026
+\end{flushright}
+#+end_export
