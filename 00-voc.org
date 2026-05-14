@@ -58,7 +58,7 @@
 :PROPERTIES:
 :CUSTOM_ID: chap-qual
 :END:
-#+include: "02-vox-qualitative-data-science.org" :lines "2-"
+#+include: "02-voc-qualitative-data-science.org" :lines "2-"
 
 * Principles of Statistical Text Analysis
 :NOTES:
@@ -73,13 +73,13 @@ Introduction to quantitative text analysis; converting plain text to an analysab
 :PROPERTIES:
 :CUSTOM_ID: chap-sentiment
 :END:
-#+include: "05-voc-sentiment-analysis.org" :lines "2-"
+#+include: "04-voc-sentiment-analysis.org" :lines "2-"
 
 * Topic Analysis
 :PROPERTIES:
 :CUSTOM_ID: chap-topics
 :END:
-#+include: "04-voc-topic-analysis.org" :lines "2-"
+#+include: "05-voc-topic-analysis.org" :lines "2-"
 
 * Extracting Value from Quantitative Survey Data
 :PROPERTIES:
