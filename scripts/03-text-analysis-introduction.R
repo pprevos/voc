@@ -62,7 +62,8 @@ word_counts_bar <- interview_tokens |>
 
 ggplot(word_counts_bar) +
   aes(word, n) +
-  geom_col(fill = "grey") +
+  geom_segment(aes(xend = word, yend = 0)) +
+  geom_point(size = 8, col = "darkgrey") +
   coord_flip() +
   theme_minimal(base_size = 28) +
   labs(x = "Word", y = "Count")
@@ -76,11 +77,12 @@ interview_tfidf <- interview_tokens |>
   ungroup() |>
   mutate(interview_nr = paste("Interviewee", interview_nr))
 
-ggplot(interview_tfidf) +
-  aes(tf_idf, reorder_within(word, tf_idf, interview_nr)) +
-  geom_col(fill = "grey") +
-  scale_y_reordered() +
-  facet_wrap(~interview_nr, scales = "free") +
-  labs(x = "TF-IDF Score",
-       y = NULL) +
-  theme_minimal(base_size = 28)
+  ggplot(interview_tfidf) +
+    aes(tf_idf,
+        reorder_within(word, tf_idf, interview_nr)) +
+    geom_col(fill = "grey") +
+    scale_y_reordered() +
+    facet_wrap(~interview_nr, scales = "free") +
+    labs(x = "TF-IDF Score",
+         y = NULL) +
+    theme_minimal(base_size = 20)
