@@ -113,7 +113,6 @@ The customer experience is a complex phenomenon that begins with the objective p
 
 We can only understand the voice of the customer as an expression of the customer experience through this multimodal lens. There is no customer experience-o-meter we can attach to someone's brain to determine their state of mind when using tap water.
 
-#+header: :width 1200 :height 600
 #+begin_src dot :file images/intro-voice-of-the-customer.png
   digraph voc {
       dpi=300;
@@ -142,7 +141,7 @@ We can only understand the voice of the customer as an expression of the custome
 #+end_src
 #+caption: Conceptual Framework for Voice of the Customer (VoC) in Water Utilities.
 #+name: fig-voc
-#+attr_latex: :width 0.9\linewidth
+#+attr_latex: :width 0.7\linewidth
 #+RESULTS:
 [[file:images/voice-of-the-customer.png]]
 
