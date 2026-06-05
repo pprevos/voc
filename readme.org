@@ -1,6 +1,6 @@
-#+title: Voice of the Customer for Water Utilities
+#+title: Voice of the Customer Analysis
 
-This project is provides open source book about methods to measure the /Voice of the customer/ (Voc) in water utilities. This project includes:
+This project is provides open source book about methods to measure the /Voice of the customer/ (Voc). This project includes:
 
 - Book (Source files in Emacs Org mode)
 - Case study data sets (synthetic and actual)
@@ -8,6 +8,8 @@ This project is provides open source book about methods to measure the /Voice of
 
 * Voice of the Customer Book
 This book is written in [[https://github.com/pprevos/emacs-writing-studio][Emacs Org mode format]], the R language for statistical computing to generate and analyse data, and create visualisations and GraphViz for graphics. When completed, it wil be published as an ebook and paperback and made available through your favourite book seller (except for Amazon because they don't allow open source books).
+
+The book uses cases studies drawn from real-life experience and simulated data related to water utilities. The methods can apply to any industry.
 
 The Org mode source files to generate the book versions are available in this repository. Note that these are early drafts of the text as this is a work in progress:
 
@@ -20,13 +22,16 @@ The Org mode source files to generate the book versions are available in this re
 7. [[file:07-voc-indirect.org][Indirect Voice of the Customer Measurement]]
 8. [[file:08-voc-implementation.org][Synthesis]]
 
-To create an ebook from the plain text files and images you need to use Emacs and the Emacs Writing Studio configuration. It will also require LaTeX (for formulas and PDF versions), the R language and GraphViz.
+To create an ebook from the plain text files and images you need to use Emacs and the [[https://lucidmanager.org/tags/emacs/][Emacs Writing Studio]] configuration. You will also need LaTeX for formulas and to generate PDF versions, the R language and GraphViz for case studies and visualisations.
 
 * Directories
 - =book=: Files to generate the book (bibliography)
-- =data=: Case study synthetic data files. This data was collected from public sources or synthesised using statistical methods and Large Language Models.
-- =images=: Book illustrations. All images in this repository were created by the author or generated using code.
-- =scripts= directory contains scripts for the case studies used in this book. All scripts are written in the Tidyverse dialect of the R language for statistical computing.
+- =data=: Case study synthetic data files. This data was collected from public sources or synthesised using statistical methods and Large Language Models
+- =dot=: Graphviz visualisations (code embedded in Org mode)
+- =images=: Book illustrations. All images in this repository were created by the author or generated using code
+- =plots=: Visualisations generated with R and the ggplot2 package
+- =scripts= directory contains scripts for the case studies used in this book. All scripts are written in the Tidyverse dialect of the R language for statistical computing
+- =tikz=: LaTeX source files for TikZ images
 
 * License and Copyright
 ** Code
